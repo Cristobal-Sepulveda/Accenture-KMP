@@ -56,7 +56,7 @@ kotlin {
         }
 
         val iosMain by creating {
-            dependsOn(commonMain)
+            //dependsOn(commonMain)
             dependencies {
                 // Add any iOS-specific dependencies here
             }
