@@ -1,16 +1,23 @@
 import SwiftUI
 import shared
 
-struct ContentView: View {
-	let greet = Greeting().greet()
+struct KMPExampleViewControllerWrapper: UIViewControllerRepresentable {
+    func makeUIViewController(context: Context) -> UIViewController {
+        kMPExampleIOSViewController()
+    }
 
-	var body: some View {
-		Text(greet)
-	}
+    func updateUIViewController(_ uiViewController: UIViewController, context: Context) {
+    }
+}
+
+struct ContentView: View {
+    var body: some View {
+        KMPExampleViewControllerWrapper()
+    }
 }
 
 struct ContentView_Previews: PreviewProvider {
-	static var previews: some View {
-		ContentView()
-	}
+    static var previews: some View {
+        ContentView()
+    }
 }

@@ -29,9 +29,9 @@ kotlin {
             implementation(libs.androidx.viewmodel)
             implementation(libs.androidx.navigation)
 
-            implementation(libs.koin.core)
-            implementation(libs.koin.test)
-            implementation(libs.koin.compose)
+            api(libs.koin.core)
+            api(libs.koin.test)
+            api(libs.koin.compose)
 
             implementation(compose.runtime)
             implementation(compose.foundation)
