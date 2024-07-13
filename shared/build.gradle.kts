@@ -1,3 +1,5 @@
+import org.jetbrains.kotlin.gradle.plugin.sources.dependsOnClosure
+
 plugins {
     alias(libs.plugins.kotlinMultiplatform)
     alias(libs.plugins.androidLibrary)
@@ -26,49 +28,40 @@ kotlin {
     }
 
     sourceSets {
-        val commonMain by getting {
-            dependencies {
-                implementation(libs.androidx.lifecycle.runtime.compose)
-                implementation(libs.androidx.lifecycle.viewmodel.compose)
-                implementation(libs.androidx.navigation.compose)
-                implementation(libs.androidx.viewmodel)
+        commonMain.dependencies {
+            implementation(compose.runtime)
+            implementation(compose.animation)
+            implementation(compose.foundation)
+            implementation(compose.material3)
+            implementation(compose.components.resources)
+            implementation(compose.components.uiToolingPreview)
 
-                implementation(compose.foundation)
-                implementation(compose.material3)
-                implementation(compose.components.resources)
-                implementation(compose.components.uiToolingPreview)
+            implementation(libs.androidx.lifecycle.runtime.compose)
+            implementation(libs.androidx.lifecycle.viewmodel.compose)
+            implementation(libs.androidx.navigation.compose)
+            implementation(libs.androidx.viewmodel)
 
-                api(libs.koin.core)
-                api(libs.koin.test)
-                api(libs.koin.compose)
-            }
+            //implementation(libs.koin.core)
+            //implementation(libs.koin.compose)
         }
-        val commonTest by getting {
+
+        commonTest {
             dependencies {
+                //implementation(libs.koin.test)
                 implementation(libs.kotlin.test)
             }
         }
 
-        val androidMain by getting {
-            dependencies {
-
-            }
+        androidMain {
+            dependencies {}
         }
 
-        val iosMain by creating {
-            //dependsOn(commonMain)
-            dependencies {
-                // Add any iOS-specific dependencies here
-            }
-        }
-        val iosX64Main by getting {
-            dependsOn(iosMain)
-        }
-        val iosArm64Main by getting {
-            dependsOn(iosMain)
-        }
-        val iosSimulatorArm64Main by getting {
-            dependsOn(iosMain)
+        iosMain {
+            dependsOn(commonMain.get())
+            dependencies { }
+            iosX64 { dependsOn(this@iosMain) }
+            iosArm64{ dependsOn(this@iosMain) }
+            iosSimulatorArm64 { dependsOn(this@iosMain) }
         }
     }
 }

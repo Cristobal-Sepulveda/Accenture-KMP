@@ -25,6 +25,6 @@ struct ContentView_Previews: PreviewProvider {
 struct ContentView: View {
 
 	var body: some View {
-		Text("greet")
+		Text("Hola")
 	}
 }
