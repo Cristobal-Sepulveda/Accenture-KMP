@@ -1,5 +1,3 @@
-import org.jetbrains.kotlin.gradle.plugin.sources.dependsOnClosure
-
 plugins {
     alias(libs.plugins.kotlinMultiplatform)
     alias(libs.plugins.androidLibrary)
@@ -56,12 +54,14 @@ kotlin {
             dependencies {}
         }
 
-        iosMain {
+        val iosX64Main by getting
+        val iosArm64Main by getting
+        val iosSimulatorArm64Main by getting
+        val iosMain by creating {
             dependsOn(commonMain.get())
-            dependencies { }
-            iosX64 { dependsOn(this@iosMain) }
-            iosArm64{ dependsOn(this@iosMain) }
-            iosSimulatorArm64 { dependsOn(this@iosMain) }
+            iosX64Main.dependsOn(this)
+            iosArm64Main.dependsOn(this)
+            iosSimulatorArm64Main.dependsOn(this)
         }
     }
 }
