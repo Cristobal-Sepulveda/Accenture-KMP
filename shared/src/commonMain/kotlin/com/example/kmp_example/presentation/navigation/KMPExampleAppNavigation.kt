@@ -8,14 +8,14 @@ import androidx.navigation.compose.composable
 import com.example.kmp_example.presentation.viewmodels.HomeViewModel
 import com.example.kmp_example.ui.screens.HomeScreen
 import com.example.kmp_example.ui.screens.SecondScreen
-//import org.koin.compose.koinInject
+import org.koin.compose.koinInject
 
 @Composable
 fun KMPExampleAppNavigation(
     navController: NavHostController,
     modifier: Modifier
 ) {
-    //val homeViewModel: HomeViewModel = koinInject()
+    val homeViewModel: HomeViewModel = koinInject()
 
     NavHost(
         navController = navController,
@@ -24,6 +24,7 @@ fun KMPExampleAppNavigation(
     ) {
         composable(route = HomeScreen.route){
             HomeScreen(
+                homeViewModel = homeViewModel,
                 navigateToSecondScreen = {
                     navController.navigate(SecondScreen.route)
                 }

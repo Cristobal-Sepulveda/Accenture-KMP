@@ -9,22 +9,27 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 
+private const val SECOND_SCREEN_TITLE = "SecondScreen"
+private const val RETURN = "Volver"
+
 @Composable
 fun SecondScreen(
     navigateBack: () -> Unit
-){
+) {
     Box(
-        contentAlignment = Alignment.Center,
         modifier = Modifier
             .fillMaxSize()
-    ){
-        Column{
-            Text(text = "SecondScreen")
+    ) {
+        Column(
+            horizontalAlignment = Alignment.CenterHorizontally,
+            modifier = Modifier
+                .align(Alignment.Center)
+        ) {
+            Text(text = SECOND_SCREEN_TITLE)
             Button(
-                onClick = {navigateBack()}
-            ) {
-                Text("Volver")
-            }
+                onClick = { navigateBack() },
+                content = { Text(RETURN) }
+            )
         }
     }
 }

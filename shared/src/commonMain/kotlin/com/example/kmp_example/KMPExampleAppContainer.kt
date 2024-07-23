@@ -7,12 +7,12 @@ import androidx.compose.ui.Modifier
 import androidx.navigation.compose.rememberNavController
 import com.example.kmp_example.presentation.navigation.KMPExampleAppNavigation
 import com.example.kmp_example.ui.theme.MyApplicationTheme
+import org.koin.core.context.startKoin
 
 @Composable
 fun KMPExampleAppContainer() {
-    val navController = rememberNavController()
-
     MyApplicationTheme {
+        val navController = rememberNavController()
         Scaffold { innerPadding ->
             KMPExampleAppNavigation(
                 navController = navController,

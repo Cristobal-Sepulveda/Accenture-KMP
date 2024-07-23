@@ -33,19 +33,17 @@ kotlin {
             implementation(compose.material3)
             implementation(compose.components.resources)
             implementation(compose.components.uiToolingPreview)
-
             implementation(libs.androidx.lifecycle.runtime.compose)
             implementation(libs.androidx.lifecycle.viewmodel.compose)
             implementation(libs.androidx.navigation.compose)
             implementation(libs.androidx.viewmodel)
-
-            //implementation(libs.koin.core)
-            //implementation(libs.koin.compose)
+            implementation(libs.koin.core)
+            implementation(libs.koin.compose)
         }
 
         commonTest {
             dependencies {
-                //implementation(libs.koin.test)
+                implementation(libs.koin.test)
                 implementation(libs.kotlin.test)
             }
         }

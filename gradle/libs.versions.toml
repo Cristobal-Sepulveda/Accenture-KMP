@@ -7,8 +7,8 @@ androidx-lifecycle = "2.8.0"
 androidx-activity = "1.8.0"
 androidx-viewmodel = "2.8.0"
 androidx-navigation = "2.7.0-alpha03"
-koin = "3.5.3"
-koin-compose = "3.6.0-wasm-alpha2"
+koin = "3.4.3"
+koin-compose = "1.0.4"
 
 [libraries]
 androidx-activity-compose = { module = "androidx.activity:activity-compose", version.ref = "androidx-activity" }
@@ -16,10 +16,12 @@ androidx-lifecycle-runtime-compose = { module = "org.jetbrains.androidx.lifecycl
 androidx-lifecycle-viewmodel-compose = { module = "org.jetbrains.androidx.lifecycle:lifecycle-viewmodel-compose", version.ref = "androidx-lifecycle" }
 androidx-navigation-compose = {module = "org.jetbrains.androidx.navigation:navigation-compose", version.ref = "androidx-navigation"}
 androidx-viewmodel = {module = "androidx.lifecycle:lifecycle-viewmodel", version.ref = "androidx-viewmodel"}
+
 compose-ui-tooling = { module = "androidx.compose.ui:ui-tooling", version.ref = "compose-android" }
 compose-ui-tooling-preview = { module = "androidx.compose.ui:ui-tooling-preview", version.ref = "compose-android" }
-#koin-core = { module = "io.insert-koin:koin-core", version.ref = "koin" }
-#koin-compose = { module = "io.insert-koin:koin-compose", version.ref="koin-compose"}
+
+koin-core = { module = "io.insert-koin:koin-core", version.ref = "koin" }
+koin-compose = { module = "io.insert-koin:koin-compose", version.ref="koin-compose"}
 
 koin-test = { module = "io.insert-koin:koin-test", version.ref = "koin" }
 kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin" }
